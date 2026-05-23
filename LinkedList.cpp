@@ -152,19 +152,38 @@ void LinkedList::Append(Bid bid)
     size++; // Increase size count
 }
 
+//============================================================================
+
+//=============================================================================
+// Fix  Part 3: Prepend(ADD) a new bid to the Front of the list function
 /**
  * Prepend a new bid to the start of the list
  */
 void LinkedList::Prepend(Bid bid)
 {
     // FIXME (3): Implement prepend logic
+
     // Create new node
+    Node *newNode = new Node(bid);
 
     // if there is already something at the head...
-    // new node points to current head as its next node
+    if (head != nullptr)
+    {
+        // new node points to current head as its next node
+        newNode->next = head; // New node points to current head as its next node
+    }
 
     // head now becomes the new node
+    head = newNode; // Head now becomes the new node
+
+    // If tail is still nullptr, make tail the new node also
+    if (tail == nullptr)
+    {
+        tail = newNode;
+    }
+
     // increase size count
+    size++; // Increase size count
 }
 
 /**
