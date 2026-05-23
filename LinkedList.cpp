@@ -186,19 +186,38 @@ void LinkedList::Prepend(Bid bid)
     size++; // Increase size count
 }
 
+// ============================================================================
+// Fix  Part 4: PrintList() function
+
 /**
  * Simple output of all bids in the list
  */
 void LinkedList::PrintList()
 {
-    // FIXME (4): Implement print logic
-    // start at the head
 
-    // while loop over each node looking for a match
-    // output current bidID, title, amount and fund
-    // set current equal to next
+    // FIXME (4): Implement print logic
+
+    // start at the head
+    Node *current = head; // Tells Function to start at the head when called
+
+    // while loop - over each node looking for a match
+    while (current != nullptr) // While - CURRENT value is NOT equal to Null then keep running it through
+    {
+        // output current bidID, title, amount and fund
+        cout << current->bid.bidId << ":"
+             << current->bid.title << " | "
+             << current->bid.amount << " | "
+             << current->bid.fund << endl;
+
+        // set current EQUAL TO THE NEXT
+        current = current->next;
+    }
 }
 
+//============================================================================
+
+//============================================================================
+// Fix Me  Part 5:
 /**
  * Remove a specified bid
  *
@@ -206,7 +225,9 @@ void LinkedList::PrintList()
  */
 void LinkedList::Remove(string bidId)
 {
+
     // FIXME (5): Implement remove logic
+
     // special case if matching node is the head
     // make head point to the next node in the list
     // decrease size count
