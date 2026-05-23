@@ -118,6 +118,8 @@ LinkedList::~LinkedList()
     }
 }
 
+//============================================================================
+// Second Fix Me
 /**
  * Append a new bid to the end of the list
  */
@@ -127,13 +129,27 @@ void LinkedList::Append(Bid bid)
     // FIXME (2): Implement append logic
 
     // Create new node
+    Node *newNode = new Node(bid);
 
     // if there is nothing at the head...
-    //  new node becomes the head and the tail
+    if (head == nullptr)
+    {
+
+        //  new node becomes the head and the tail
+        head = newNode; // First Node becomes the head
+        tail = newNode; // First Node becomes the tail
+    }
     // else
-    //  make current tail node point to the new node
-    //  and tail becomes the new node
+    else
+    {
+        //  make current tail node point to the new node
+        tail->next = newNode; // Current tail node points to the new node
+
+        //  and tail becomes the new node
+        tail = newNode; // Tail becomes the new node
+    }
     // increase size count
+    size++; // Increase size count
 }
 
 /**
